@@ -49,7 +49,7 @@ docker-compose up -d --build
 ```
 
 ```bash
-npm run migrate
+npm run migration
 ```
 
 ## Running the project
