@@ -1,0 +1,13 @@
+node_modules/
+dist
+yarn-error.log
+yarn.lock
+package-lock.json
+
+# Coverage report
+__tests__/coverage
+
+# VSCode Settings
+.vscode/
+
+*.insyncdl
