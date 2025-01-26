@@ -29,8 +29,12 @@ const create = async (req, res, next) => {
 };
 
 const list = async (req, res, next) => {
+  const { status } = req.query;
   try {
     const tasks = await Task.findAll({
+      where: {
+        status: status,
+      },
       attributes: {
         exclude: ['id', 'createdAt', 'updatedAt'],
       },
