@@ -30,15 +30,23 @@ const create = async (req, res, next) => {
 
 const list = async (req, res, next) => {
   const { status } = req.query;
-  try {
-    const tasks = await Task.findAll({
+  let query = {
+    attributes: {
+      exclude: ['id', 'createdAt', 'updatedAt'],
+    },
+  }
+
+  if (status) {
+    query = {
+      ...query,
       where: {
         status: status,
       },
-      attributes: {
-        exclude: ['id', 'createdAt', 'updatedAt'],
-      },
-    });
+    }
+  }
+
+  try {
+    const tasks = await Task.findAll(query);
 
     res.locals.data = tasks;
     res.locals.status = 200;
