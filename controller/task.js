@@ -2,7 +2,6 @@ import { Task } from '../models/index.js';
 
 const create = async (req, res, next) => {
   try {
-
     const {
       titulo,
       descricao,
@@ -32,7 +31,7 @@ const list = async (req, res, next) => {
   const { status } = req.query;
   let query = {
     attributes: {
-      exclude: ['id', 'createdAt', 'updatedAt'],
+      exclude: ['createdAt', 'updatedAt'],
     },
   }
 
